@@ -1,0 +1,11 @@
+<div *ngIf="Q">
+  <ng-container *ngFor="let q of arr; let i= index">
+    <article class="que-conatiner">
+      <h4 class="que-placeholder">
+        <span> {{q.sequence}}.&nbsp; </span>
+        {{q.question_data}}
+      </h4>
+    </article>
+  </ng-container>
+
+</div>

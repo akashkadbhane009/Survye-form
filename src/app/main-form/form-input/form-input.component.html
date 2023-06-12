@@ -1,0 +1,21 @@
+<section>
+  <label [for]="inputid">{{ label }}</label>
+  <input
+    [type]="type"
+    [id]="inputid"
+    [placeholder]="placeholder"
+    [formControl]="control"
+  />
+  <ng-container
+    *ngIf="
+      form.get(inputid).invalid &&
+      form.get(inputid).touched &&
+      form.get(inputid).dirty
+    "
+  >
+    <div class="validator" *ngFor="let err of control.errors | keyvalue">
+      {{ errorMessege[err.key] }}
+    </div>
+  </ng-container>
+  <!-- <app-validation-error *ngIf="form.get(inputid).invalid && form.get(inputid).touched && form.get(inputid).dirty" [inputId]="inputid" [form]="control"></app-validation-error> -->
+</section>

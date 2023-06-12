@@ -1,0 +1,37 @@
+<div *ngIf="city">
+  <section class="parent" >
+    <div class="drop-down__container">
+      <label for="city" class="label">City</label>
+      <select
+        name="city"
+        id="city"
+        class="drop-down__select"
+        [formControl]="control"
+        (change)="onSelectCity()"
+      >
+        <!-- <option selected="selected" class="drop-down__select--title">Select City</option> -->
+        <ng-container *ngFor="let c of city.data.data; let i = index">
+          <option class="drop-down__select--title" [value]="c.id">
+            {{ c.city_name }}
+          </option>
+        </ng-container>
+
+      </select>
+      <ng-container
+      *ngIf="
+        form.get('city').invalid &&
+        form.get('city').touched &&
+        form.get('city').dirty
+      "
+    >
+      <div class="validator" *ngFor="let err of control.errors | keyvalue">
+        {{ errorMessege[err.key] }}
+      </div>
+    </ng-container>
+    </div>
+  </section>
+  <section>
+    <app-store-inpute [control]="con" [F]="form" [Store]="store"></app-store-inpute>
+  </section>
+
+</div>

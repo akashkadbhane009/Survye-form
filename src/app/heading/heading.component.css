@@ -1,0 +1,29 @@
+.heading{
+
+  position: relative;
+  padding: 25px;
+  color: #79311d;
+}
+.heading h2{
+  margin: 0;
+  position: relative;
+    font-weight: 600;
+    display: flex;
+    font-size: 20px;
+    line-height: 145%
+}
+.heading h2 span{
+  z-index: 2;
+  padding-right: 10px;
+  background: #f8f5f0;
+}
+
+.heading h2::after{
+  content: "";
+  width: 100%;
+  border-bottom: 1px solid #ddcba4;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 1;
+}

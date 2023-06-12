@@ -1,0 +1,31 @@
+<div>
+  <footer>
+    <section class="submit-container">
+      <p class="description">
+        May we send you offers
+        <br />
+        in the future ?
+      </p>
+      <article class="button-conatiner">
+        <span
+          [class.yes]="!isClicked"
+          id="no"
+          style="cursor: pointer"
+          (click)="OnChangeClassTriggerno()"
+          >No, Thanks</span
+        >
+        <span
+          [class.yes]="isClicked"
+          id="no"
+          style="cursor: pointer"
+          (click)="OnChangeClassTrigger()"
+          >Of course, Yes!
+        </span>
+      </article>
+    </section>
+    <section class="footer-logo">
+      <span class="footer-logo-text"> Cheers! - Tarun</span
+      ><img src="../assets/footer-logo2.png" alt="" class="footer-logo-img" />
+    </section>
+  </footer>
+</div>

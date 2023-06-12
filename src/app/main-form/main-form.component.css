@@ -1,0 +1,10 @@
+.main-container {
+  position: relative;
+  margin: 5px 0;
+  padding: 25px 25px 15px;
+  background-color: var(--white);
+}
+.main-container article {
+  position: relative;
+  z-index: 300;
+}

@@ -1,0 +1,48 @@
+header {
+  position: relative;
+  background: #ddcba4;
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+}
+header article {
+  padding: 25px 25px 5px;
+  color: var(--textred);
+}
+
+.quad {
+  width: 41.64px;
+  height: 33.36px;
+}
+
+.logo {
+  width: 116px;
+  height: 31px;
+  float: right;
+}
+header article h4 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 145%;
+  margin: 0;
+  /* margin-bottom: 5px; */
+}
+header article p {
+  text-align: justify;
+
+  line-height: 25px;
+  margin-top: 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+.bg-logo {
+  position: absolute;
+  width: 100%;
+  height: 124px;
+  left: 0;
+  bottom: 2px;
+  background-image: url("../../assets/header-timhortons.3d36b92cd83ba9fc.png");
+  opacity: 1;
+}

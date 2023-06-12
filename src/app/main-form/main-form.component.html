@@ -1,0 +1,17 @@
+<main>
+  <app-heading> </app-heading>
+  <form [formGroup]="from">
+  <section class="main-container">
+    <article>
+        <app-form-input type="text" [control]="from.controls.Name" placeholder="Enter your name" label="Name" inputid="Name" [form]="from" ></app-form-input>
+
+
+        <app-form-input type="email" [control]="from.controls.email" placeholder="Enter your email" label="Email-ID" inputid="email" [form]="from" ></app-form-input>
+        <app-date-picker [control]="from.controls.dateOfVisit" [form]="from" ></app-date-picker>
+        <app-city-input [control]="from.controls.city" [con]="from.controls.store" [form]="from"></app-city-input>
+      </article>
+    </section>
+    <app-que-container></app-que-container>
+    </form>
+  <app-submit-button></app-submit-button>
+</main>

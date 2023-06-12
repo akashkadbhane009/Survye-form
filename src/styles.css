@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: SofiaPro-Regular;
+  src: url("./assets/SofiaProRegular.ttf");
+}
+:root {
+  --red: #c8102e;
+  --errorRed: #ec3131;
+  --textred: #79311d;
+  --textQuestion: #3f2021;
+  --textred2: #c8102e;
+  --white: #ffffff;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: #f8f5f0;
+}
+

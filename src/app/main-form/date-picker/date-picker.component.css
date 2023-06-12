@@ -1,0 +1,38 @@
+section {
+  position: relative;
+  margin: 15px 0 25px;
+}
+
+section label {
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  padding: 0 3px;
+  background-color: #fff;
+  color: #6d6767;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 145%;
+  animation: fadeIn 0.5s;
+}
+
+section input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1.2px solid #eee3e3;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%;
+  color: #6d6767;
+  background-color: transparent;
+}
+.validator{
+  color: var(--errorRed);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: .01em;
+  padding-left: 12px;
+}
