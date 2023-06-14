@@ -1,0 +1,62 @@
+section {
+  position: relative;
+  margin: 15px 0 25px;
+}
+label {
+  position: absolute;
+  top: -8px;
+  left: 15px;
+  padding: 0 3px;
+  background-color: #fff;
+  color: #6d6767;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 145%;
+  animation: fadeIn 0.2s;
+}
+p{
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%;
+  color: #6d6767;
+}
+input {
+  width: 100%;
+  background-color: transparent;
+  padding: 10px 15px 10px 45px;
+  border: 1.2px solid #eee3e3;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%;
+  color: #6d6767;
+}
+.validator{
+  color: var(--errorRed);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: .01em;
+  padding-left: 12px;
+}
+section input.ng-invalid.ng-touched {
+  border: 1.2px solid var(--errorRed);
+}
+.getOTPButton{
+  position: absolute;
+  top: 48%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: var(--red);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 145%;
+  z-index: 200;
+  cursor: pointer;
+}

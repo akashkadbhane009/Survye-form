@@ -1,5 +1,5 @@
 <section>
-  <label for="Date_of_visit">Date of visit</label>
+  <label [ngStyle]="{color: getColor()}" for="Date_of_visit">Date of visit</label>
   <input type="date" [formControl]="control" id="Date_of_visit">
   <ng-container *ngIf="form.get('dateOfVisit').invalid && form.get('dateOfVisit').touched && form.get('dateOfVisit').dirty" >
     <div class="validator" *ngFor="let err of control.errors | keyvalue">

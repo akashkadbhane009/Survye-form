@@ -1,0 +1,18 @@
+<section>
+  <label [ngStyle]="{color: getColor()}" [for]="inputid">Mobile Number</label>
+  <p [ngStyle]="{top:getTop()}">+91</p>
+  <input type="number" [formControl]="control" name="mobileno" [id]="inputid">
+  <span *ngIf="!form.get(inputid).invalid " class="getOTPButton">Get OTP</span>
+
+  <ng-container
+  *ngIf="
+    form.get(inputid).invalid &&
+    form.get(inputid).touched &&
+    form.get(inputid).dirty
+  "
+>
+  <div class="validator" *ngFor="let err of control.errors | keyvalue">
+    {{ errorMessege[err.key] }}
+  </div>
+</ng-container>
+</section>

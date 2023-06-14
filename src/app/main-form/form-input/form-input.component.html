@@ -1,5 +1,5 @@
 <section>
-  <label [for]="inputid">{{ label }}</label>
+  <label [ngStyle]="{color: getColor()}" [for]="inputid">{{ label }}</label>
   <input
     [type]="type"
     [id]="inputid"

@@ -1,1 +1,16 @@
-<p>text works!</p>
+<section *ngIf="options">
+  <label [for]="ih">{{ih}}</label>
+  <input
+    type="text"
+    [id]="ih"
+    matInput
+    [formControl]=""
+    (change)="onProductCall()"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of options.data" [value]="option.product_name">
+      {{ option.product_name }}
+    </mat-option>
+  </mat-autocomplete>
+</section>

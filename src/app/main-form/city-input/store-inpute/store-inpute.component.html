@@ -1,32 +1,27 @@
-<!--
-<div>
-  <label for="store" class="label">Store</label>
-  <input list="store" id="store" name="store" [formControl]="control" autocomplete="on">
-  <datalist id="store">
-    <ng-container *ngFor="let list of Store.data; let j = index" >
-      <option [value]="list.store_name">
-    </ng-container>
-  </datalist>
-</div> -->
+
 <div *ngIf="Store">
-  <label for="store" class="label">Store</label>
-  <select name="store" id="store" [formControl]="control">
+  <label [ngStyle]="{color: getColor()}" for="store" class="label">Store</label>
+  <input
+    type="text"
 
-
-    <ng-container *ngFor="let list of Store.data; let j = index">
-      <option [value]="list.store_name">{{ list.store_name }}</option>
-    </ng-container>
-  </select>
-
+    matInput
+    name="store" id="store" [formControl]="control"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let list of Store.data; let j = index" [value]="list.store_name">
+      {{ list.store_name }}
+    </mat-option>
+  </mat-autocomplete>
   <ng-container
-    *ngIf="
-      F.get('store').invalid &&
-      F.get('store').touched &&
-      F.get('store').dirty
-    "
-  >
-    <div class="validator" *ngFor="let err of control.errors | keyvalue">
-      {{ errorMessege[err.key] }}
-    </div>
-  </ng-container>
+  *ngIf="
+    F.get('store').invalid &&
+    F.get('store').touched &&
+    F.get('store').dirty
+  "
+>
+  <div class="validator" *ngFor="let err of control.errors | keyvalue">
+    {{ errorMessege[err.key] }}
+  </div>
+</ng-container>
 </div>

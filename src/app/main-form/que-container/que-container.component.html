@@ -1,11 +1,16 @@
 <div *ngIf="Q">
-  <ng-container *ngFor="let q of arr; let i= index">
+  <ng-container *ngFor="let q of arr; let i = index">
     <article class="que-conatiner">
       <h4 class="que-placeholder">
-        <span> {{q.sequence}}.&nbsp; </span>
-        {{q.question_data}}
+        <span> {{ q.sequence }}.&nbsp; </span>
+        {{ q.question_data }}
       </h4>
+      <app-text-area
+        *ngIf="q.type === 'text-area'"
+        [ph]="q.placholder"
+      ></app-text-area>
+      <app-rating *ngIf="q.type === 'rating'"></app-rating>
+      <app-text [cat]="q.category" [ih]="q.Input_heading" *ngIf="q.type === 'auto-complete'"></app-text>
     </article>
   </ng-container>
-
 </div>

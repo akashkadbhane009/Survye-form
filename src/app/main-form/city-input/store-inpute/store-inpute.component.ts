@@ -12,11 +12,23 @@ export class StoreInputeComponent {
 @Input() F! :any;
 @Input() Store! : Store
 @Input() errorMessege!: Record<string, string>;
+@Input() cityid : string
 
   ngOnInit(){
     this.errorMessege = {
       required: ' Store is required',
     };
+  }
+  getColor() {
+    if (
+      this.F.get('store').invalid &&
+      this.F.get('store').touched &&
+      this.F.get('store').dirty
+    ) {
+      return '#ec3131';
+    } else {
+      return '#6d6767';
+    }
   }
 
 }

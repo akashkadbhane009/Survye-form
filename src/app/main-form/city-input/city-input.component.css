@@ -52,7 +52,7 @@ section input {
   color: #6d6767;
   background-color: transparent;
 }
-@media (max-width: 678px) {
+@media (max-width: 768px) {
   .parent.drop-down__select {
     min-width: 10px;
   }

@@ -10,7 +10,7 @@ label {
   line-height: 145%;
   animation: fadeIn 0.5s;
 }
-select {
+input {
   width: 100%;
   padding: 10px 15px;
   border: 1.2px solid #eee3e3;
