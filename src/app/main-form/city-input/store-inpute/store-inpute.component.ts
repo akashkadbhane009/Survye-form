@@ -22,8 +22,7 @@ export class StoreInputeComponent {
   getColor() {
     if (
       this.F.get('store').invalid &&
-      this.F.get('store').touched &&
-      this.F.get('store').dirty
+      this.F.get('store').touched 
     ) {
       return '#ec3131';
     } else {

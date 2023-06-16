@@ -33,7 +33,7 @@ export class CityInputComponent {
       .get<City>('https://th.vnnogile.in/admin/api/v1/City')
       .subscribe((res) => {
         this.city = res;
-        console.log(res.data.data);
+       // console.log(res.data.data);
       });
   }
 
@@ -52,8 +52,7 @@ export class CityInputComponent {
   getColor() {
     if (
       this.form.get('city').invalid &&
-      this.form.get('city').touched &&
-      this.form.get('city').dirty
+      this.form.get('city').touched
     ) {
       return '#ec3131';
     } else {

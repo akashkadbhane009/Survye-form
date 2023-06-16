@@ -25,6 +25,7 @@ import { TextAreaComponent } from './main-form/que-container/text-area/text-area
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MobilenoInputComponent } from './main-form/mobileno-input/mobileno-input.component';
+import { OtpVerificationComponent } from './main-form/mobileno-input/otp-verification/otp-verification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { MobilenoInputComponent } from './main-form/mobileno-input/mobileno-inpu
     TextComponent,
     TextAreaComponent,
     MobilenoInputComponent,
+    OtpVerificationComponent,
 
 
   ],

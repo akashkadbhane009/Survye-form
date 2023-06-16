@@ -1,16 +1,17 @@
-footer{
+footer {
   text-align: center;
   margin-bottom: 30px;
-  padding-bottom: 80px
+  padding-bottom: 80px;
 }
-footer .submit-container{
-    margin: 25px;
-    color: var(--white);
-    background: #79311d;
-    border-radius: 12px;
-    font-weight: 600;
+footer .submit-container {
+  margin-top: 0;
+  margin: 25px;
+  color: var(--white);
+  background: #79311d;
+  border-radius: 12px;
+  font-weight: 600;
 }
-footer .submit-container .description{
+footer .submit-container .description {
   margin-bottom: 0px;
   margin-top: 0px;
   text-align: center;
@@ -18,7 +19,7 @@ footer .submit-container .description{
   font-size: 20px;
   line-height: 145%;
 }
-.button-conatiner{
+.button-conatiner {
   display: flex;
   padding: 5px;
   flex-wrap: wrap;
@@ -27,12 +28,7 @@ footer .submit-container .description{
   color: inherit;
 } */
 
-
-
-
-
-#no{
-
+#no {
   text-decoration: none;
   flex: 1;
   display: flex;
@@ -46,14 +42,14 @@ footer .submit-container .description{
   margin: 8px;
   border: 1px solid;
 }
-.yes{
-    color: var(--textred2);
-    background-color: #fff;
+.yes {
+  color: var(--textred2);
+  background-color: #fff;
 }
-.footer-logo{
+.footer-logo {
   position: relative;
 }
-.footer-logo-text{
+.footer-logo-text {
   position: absolute;
   top: 40px;
   left: 50%;
@@ -64,4 +60,3 @@ footer .submit-container .description{
   text-align: center;
   color: #79311d;
 }
-

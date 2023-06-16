@@ -77,3 +77,15 @@ section input {
   padding: 10px 0.8rem;
   cursor: pointer;
 }
+section input.ng-invalid.ng-touched {
+  border: 1.2px solid var(--errorRed);
+}
+
+.validator{
+  color: var(--errorRed);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: .01em;
+  padding-left: 12px;
+}

@@ -11,25 +11,29 @@ export class TextComponent implements OnInit {
   @Input() ih: string;
   @Input() cat: string;
   @Input() options: any;
+  @Input() f: any;
+  @Input() index: any;
+  event: any;
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     this.onProductCall();
   }
 
   onProductCall() {
-    let event = ''
-    // set event from form in put after form array binding to que conatiner
-    this.http
-      .get<Products>('https://th.vnnogile.in/server/api/v1/products', {
-        params: new HttpParams()
-          .set('srcterm', event)
-          .set('category', this.cat)
-          .set('attributes', 'product_name'),
-      })
-      .subscribe((res) => {
-        this.options = res;
-        // console.log(res);
-      });
-
+    this.f.valueChanges.subscribe((res) => {
+      this.event = res.survey_response[this.index].res;
+      //console.log(res.survey_response[this.index].res)
+      this.http
+        .get<Products>('https://th.vnnogile.in/server/api/v1/products', {
+          params: new HttpParams()
+            .set('srcterm', this.event)
+            .set('category', this.cat)
+            .set('attributes', 'product_name'),
+        })
+        .subscribe((res) => {
+          this.options = res;
+          // console.log(res);
+        });
+    });
   }
 }

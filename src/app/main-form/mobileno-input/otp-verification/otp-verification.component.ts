@@ -1,54 +1,54 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-mobileno-input',
-  templateUrl: './mobileno-input.component.html',
-  styleUrls: ['./mobileno-input.component.css'],
+  selector: 'app-otp-verification',
+  templateUrl: './otp-verification.component.html',
+  styleUrls: ['./otp-verification.component.css'],
 })
-export class MobilenoInputComponent {
+export class OtpVerificationComponent {
   @Input() inputid = '';
   @Input() form: any;
   @Input() control = new FormControl();
   @Input() errorMessege!: Record<string, string>;
-  countStart: boolean = false;
-  countdowngap: any = 5;
-  countdownTimer: number;
-  isOtpSent : boolean = false
-  x: any;
+  @Input() start: boolean;
+  @Input() otpSent : boolean = false
+  @Input() Timer: any;
+
 
   constructor(private http: HttpClient) {}
   ngOnInit() {
     this.errorMessege = {
-      required: 'Mobile Number is required',
-      pattern: ' Mobile Number is invalid.',
+      required: 'OTP Number is required',
+      minlength: ' Enter 4 Digit OTP is invalid.',
+      maxlength: ' Enter 4 Digit OTP is invalid.',
+      pattern: 'Please match the requested format.',
     };
-  }
-  startCountdown() {
-    this.countdownTimer = this.countdowngap;
-    this.x = setInterval(() => {
-      if (this.countdownTimer > 0) {
-        this.countdownTimer--;
-        // console.log(this.countdownTimer)
-      } else {
-        this.stopCountdown();
+    this.form.valueChanges.subscribe((res) => {
+      let otp = res.otp.toString();
+
+
+
+      if (otp.length === 4) {
+        this.http
+          .post('https://th.vnnogile.in/auth/api/v1/login', {
+            app_name: 'THWEBAPP',
+            username: res.Name,
+            mobile: res.mobileNo.toString(),
+            otp: res.otp,
+            tenant_id: 1,
+          })
+          .subscribe();
       }
-    }, 1000);
-  }
-
-  stopCountdown() {
-    clearInterval(this.x);
-    this.countStart = false;
-    this.isOtpSent = true;
-
+    });
   }
   getOtp() {
     console.log(this.form.controls.Name.value);
-    console.log('1234566');
+    //console.log('1234566');
     let strNo = this.form.controls.mobileNo.value;
     const str = strNo.toString();
-    console.log(str);
+    //console.log(str);
     this.http
       .post('https://th.vnnogile.in/survey/api/v1/surveyotp', {
         fullname: this.form.controls.Name.value,
@@ -59,12 +59,9 @@ export class MobilenoInputComponent {
       })
       .subscribe((res) => {
         console.log(res);
-        this.countStart = true;
-        this.isOtpSent = true;
       });
-
-    this.startCountdown();
   }
+
   getTop() {
     if (
       this.form.get(this.inputid).invalid &&
@@ -75,6 +72,7 @@ export class MobilenoInputComponent {
       return '50%';
     }
   }
+
   getColor() {
     if (
       this.form.get(this.inputid).invalid &&

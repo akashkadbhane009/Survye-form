@@ -1,1 +1,18 @@
-<p>rating works!</p>
+<section >
+  <article [ngClass]="{bold:rating === star.r}" *ngFor="let star of [{r:1 ,x: ' Terrible '}, {r:2 ,x: ' Bad '}, {r:3 ,x: ' Ok '}, {r:4 ,x: ' Good '}, {r:5 ,x: ' Great '}] ; let i = index;">
+  <img
+
+  (click)="onRating(i)"
+
+    [src]="
+      star.r <= rating
+        ? '../../../../assets/Rectangle.png'
+        : '../../../../assets/InRectangle.png'
+    "
+    alt="Star"
+  />
+  {{star.x}}
+
+</article>
+
+</section>

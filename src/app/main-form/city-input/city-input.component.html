@@ -14,6 +14,16 @@
 
       [matAutocomplete]="auto"
     />
+    <ng-container
+    *ngIf="
+    form.get('city').invalid &&
+    form.get('city').touched
+    "
+  >
+    <div class="validator" *ngFor="let err of control.errors | keyvalue">
+      {{ errorMessege[err.key] }}
+    </div>
+  </ng-container>
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option  (click)="onSelectCity(c.id)" *ngFor="let c of city.data.data; let i = index" [value]="c.city_name"  >
         {{ c.city_name }}

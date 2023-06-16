@@ -1,27 +1,26 @@
-
 <div *ngIf="Store">
-  <label [ngStyle]="{color: getColor()}" for="store" class="label">Store</label>
+  <label [ngStyle]="{ color: getColor() }" for="store" class="label"
+    >Store</label
+  >
   <input
     type="text"
-
     matInput
-    name="store" id="store" [formControl]="control"
+    name="store"
+    id="store"
+    [formControl]="control"
     [matAutocomplete]="auto"
   />
+  <ng-container *ngIf="F.get('store').invalid && F.get('store').touched">
+    <div class="validator" *ngFor="let err of control.errors | keyvalue">
+      {{ errorMessege[err.key] }}
+    </div>
+  </ng-container>
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let list of Store.data; let j = index" [value]="list.store_name">
+    <mat-option
+      *ngFor="let list of Store.data; let j = index"
+      [value]="list.store_name"
+    >
       {{ list.store_name }}
     </mat-option>
   </mat-autocomplete>
-  <ng-container
-  *ngIf="
-    F.get('store').invalid &&
-    F.get('store').touched &&
-    F.get('store').dirty
-  "
->
-  <div class="validator" *ngFor="let err of control.errors | keyvalue">
-    {{ errorMessege[err.key] }}
-  </div>
-</ng-container>
 </div>

@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class TextAreaComponent {
   @Input() ph : string
+  @Input() f : any
+  @Input() index:any
 }

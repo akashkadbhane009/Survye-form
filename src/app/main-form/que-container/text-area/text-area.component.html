@@ -1,3 +1,3 @@
 <section>
-  <textarea  [placeholder]="ph" cols="30" rows="02"></textarea>
+  <textarea [formControl]="f.get('survey_response').controls[this.index].controls.res" [placeholder]="ph" cols="30" rows="02"></textarea>
 </section>

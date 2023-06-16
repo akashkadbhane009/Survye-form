@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray } from '@angular/forms';
 import { Questions } from 'src/app/Interfaces/Questions.interface';
-import { QuestionsService } from 'src/app/service/questions.service';
+
 
 @Component({
   selector: 'app-que-container',
@@ -8,15 +9,20 @@ import { QuestionsService } from 'src/app/service/questions.service';
   styleUrls: ['./que-container.component.css'],
 })
 export class QueContainerComponent implements OnInit{
+  @Input() form : any
+  @Input() control = new FormArray([]);
   Q! : Questions;
-  arr! : any[]
-  constructor(private que: QuestionsService) {}
+  @Input()ar! : any
+  @Input()index! : any
+  ctr : any
+  constructor() {}
 
   ngOnInit(){
-    this.que.getQuestons().subscribe(res=>{
-      this.Q = res;
-      this.arr = this.Q.data.data.sort((a,b) => a.sequence > b.sequence ? 1 : -1);
-      console.log(this.arr)
-    })
+    this.ctr=this.form.get('survey_response').controls[this.index].controls;
+    // console.log(this.form.get('survey_response').controls[this.index].controls)
+
+    this.form.get('survey_response').controls[this.index].controls.qId.setValue(this.ar.id)
+    this.form.get('survey_response').controls[this.index].controls.type.setValue(this.ar.type)
+    this.form.get('survey_response').controls[this.index].controls.data.setValue(this.ar.question_data)
   }
 }

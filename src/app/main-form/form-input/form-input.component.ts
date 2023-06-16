@@ -14,10 +14,12 @@ export class FormInputComponent {
   @Input() type = '';
   @Input() form: any;
   @Input() errorMessege!: Record<string, string>;
+
+
   ngOnInit() {
     this.errorMessege = {
       required: this.inputid + ' is required',
-      minLength : 'Minimum length required 2 characters',
+      minlength : 'Minimum length required 2 characters',
       email : 'Email-ID is invalid',
       pattern: 'Please match the requested format.',
     };
@@ -27,8 +29,7 @@ export class FormInputComponent {
   getColor() {
     if (
       this.form.get(this.inputid).invalid &&
-      this.form.get(this.inputid).touched &&
-      this.form.get(this.inputid).dirty
+      this.form.get(this.inputid).touched
     ) {
       return '#ec3131';
     } else {

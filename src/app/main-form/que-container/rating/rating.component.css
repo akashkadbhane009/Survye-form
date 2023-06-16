@@ -1,0 +1,28 @@
+.star-rating {
+  display: inline-block;
+}
+section {
+  display: flex;
+  width: 100%;
+  margin: 20px 0 0;
+}
+article {
+  flex: 1;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 145%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6d6767;
+}
+img {
+  width: 36px;
+  margin-bottom: 8px;
+}
+.bold {
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  color: #3f2021 !important;
+}

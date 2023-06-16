@@ -1,0 +1,20 @@
+<section>
+  <label  [ngStyle]="{color: getColor()}"  for="otp">Enter 4 Digit OTP</label>
+  <input type="number" placeholder="Enter 4 Digit OTP" [formControl]="control"  name="otp" id="otp">
+
+  <article>
+    <span style="cursor: pointer;" *ngIf="!start && otpSent" class="getOTPButton" >Resend OTP</span>
+    <span *ngIf="start" class="getOTPButton">{{Timer}} sec</span>
+  </article>
+
+  <ng-container
+  *ngIf="
+    form.get(inputid).invalid &&
+    form.get(inputid).touched 
+  "
+>
+  <div class="validator" *ngFor="let err of control.errors | keyvalue">
+    {{ errorMessege[err.key] }}
+  </div>
+</ng-container>
+</section>

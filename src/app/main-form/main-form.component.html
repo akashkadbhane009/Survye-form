@@ -1,19 +1,54 @@
 <main>
   <app-heading> </app-heading>
   <form [formGroup]="from">
-  <section class="main-container">
-    <article>
-        <app-form-input type="text" [control]="from.controls.Name" placeholder="Enter your name" label="Name" inputid="Name" [form]="from" ></app-form-input>
-        <app-mobileno-input [control]="from.controls.mobileNo" inputid="mobileNo" [form]="from" ></app-mobileno-input>
+    <section class="main-container">
+      <article>
+        <app-form-input
+          type="text"
+          [control]="from.controls.Name"
+          placeholder="Enter your name"
+          label="Name"
+          inputid="Name"
+          [form]="from"
+        ></app-form-input>
+        <app-mobileno-input
+          [control]="from.controls.mobileNo"
+          inputid="mobileNo"
+          [form]="from"
+        ></app-mobileno-input>
 
-        <app-form-input type="email"  [control]="from.controls.Email" placeholder="Enter your email" label="Email-ID" inputid="Email" [form]="from" ></app-form-input>
-        <app-date-picker [control]="from.controls.dateOfVisit" [form]="from"  ></app-date-picker>
-        <app-city-input [control]="from.controls.city" [con]="from.controls.store" [form]="from"></app-city-input>
+        <app-form-input
+          type="email"
+          [control]="from.controls.Email"
+          placeholder="Enter your email"
+          label="Email-ID"
+          inputid="Email"
+          [form]="from"
+        ></app-form-input>
+        <app-date-picker
+          [control]="from.controls.dateOfVisit"
+          [form]="from"
+        ></app-date-picker>
+        <app-city-input
+          [control]="from.controls.city"
+          [con]="from.controls.store"
+          [form]="from"
+        ></app-city-input>
       </article>
-      <img src="../../assets/donut.png" alt="" class="bg1">
-      <img src="../../assets/heart.png" alt="" class="bg2">
+      <img src="../../assets/donut.png" alt="" class="bg1" />
+      <img src="../../assets/heart.png" alt="" class="bg2" />
     </section>
-    <app-que-container></app-que-container>
+    <div formArrayName="survey_response">
+      <div *ngFor="let Fa of from.get('survey_response').controls;let q of arr; let i = index">
+
+        <app-que-container
+          [index]="i"
+          [ar]="q"
+          [control]="from.controls.survey_response"
+          [form]="from"
+        ></app-que-container>
+      </div>
+    </div>
     <app-submit-button></app-submit-button>
   </form>
 </main>

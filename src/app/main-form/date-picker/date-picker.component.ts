@@ -19,8 +19,7 @@ export class DatePickerComponent {
   getColor() {
     if (
       this.form.get('dateOfVisit').invalid &&
-      this.form.get('dateOfVisit').touched &&
-      this.form.get('dateOfVisit').dirty
+      this.form.get('dateOfVisit').touched 
     ) {
       return '#ec3131';
     } else {
