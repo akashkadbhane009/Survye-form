@@ -1,17 +1,16 @@
-
-.error-main{
+.error-main {
   position: fixed;
-top: 50%;
-z-index: 400;
-width: 100%;
-max-width: 768px;
-transform: translateY(-50%);
-font-weight: 400;
-font-size: 16px;
-line-height: 145%;
-color: #fff;
-text-align: center;
-background: #c8102e;
-padding: 18px 0;
-letter-spacing: 1px;
+  top: 50%;
+  z-index: 400;
+  max-width: 768px;
+  width: 100%;
+  transform: translateY(-50%);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%;
+  color: #fff;
+  text-align: center;
+  background: #c8102e;
+  padding: 18px 0;
+  letter-spacing: 1px;
 }

@@ -4,17 +4,18 @@
 
   <article>
     <span style="cursor: pointer;" *ngIf="!start && otpSent" class="getOTPButton" >Resend OTP</span>
-    <span *ngIf="start" class="getOTPButton">{{Timer}} sec</span>
+    <span *ngIf="start" class="getOTPButton">00:{{Timer}} sec</span>
   </article>
 
   <ng-container
   *ngIf="
     form.get(inputid).invalid &&
-    form.get(inputid).touched 
+    form.get(inputid).touched
   "
 >
   <div class="validator" *ngFor="let err of control.errors | keyvalue">
     {{ errorMessege[err.key] }}
   </div>
 </ng-container>
+<p *ngIf="isOtpInvalid" class="validator">Invalid OTP</p>
 </section>

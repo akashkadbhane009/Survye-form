@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { Res } from 'src/app/Interfaces/Store.interface';
 
 @Component({
   selector: 'app-otp-verification',
@@ -15,6 +16,7 @@ export class OtpVerificationComponent {
   @Input() start: boolean;
   @Input() otpSent : boolean = false
   @Input() Timer: any;
+  isOtpInvalid : boolean = false;
 
 
   constructor(private http: HttpClient) {}
@@ -34,12 +36,21 @@ export class OtpVerificationComponent {
         this.http
           .post('https://th.vnnogile.in/auth/api/v1/login', {
             app_name: 'THWEBAPP',
-            username: res.Name,
+            username: res.mobileNo.toString(),
             mobile: res.mobileNo.toString(),
             otp: res.otp,
             tenant_id: 1,
           })
-          .subscribe();
+          .subscribe((res : Res)=>{
+            if( !res.status){
+              this.isOtpInvalid = true;
+              if ( this.isOtpInvalid ) {
+                setTimeout(() => {
+                  this.isOtpInvalid  = false; // Set errorFlag to false after 3 seconds
+                }, 5000);
+              }
+            }
+          });
       }
     });
   }
@@ -58,7 +69,7 @@ export class OtpVerificationComponent {
         store_location: '',
       })
       .subscribe((res) => {
-        console.log(res);
+
       });
   }
 
@@ -76,7 +87,7 @@ export class OtpVerificationComponent {
   getColor() {
     if (
       this.form.get(this.inputid).invalid &&
-      this.form.get(this.inputid).touched 
+      this.form.get(this.inputid).touched
     ) {
       return '#ec3131';
     } else {

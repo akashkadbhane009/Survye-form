@@ -57,3 +57,10 @@ export interface MediaMaster {
   id: string
   media_url: string
 }
+
+
+
+export interface Res{
+  status: boolean
+  message : string
+}

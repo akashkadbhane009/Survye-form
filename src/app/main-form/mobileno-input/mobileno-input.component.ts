@@ -13,7 +13,7 @@ export class MobilenoInputComponent {
   @Input() control = new FormControl();
   @Input() errorMessege!: Record<string, string>;
   countStart: boolean = false;
-  countdowngap: any = 5;
+  countdowngap: any = 60;
   countdownTimer: number;
   isOtpSent : boolean = false
   x: any;
@@ -58,7 +58,7 @@ export class MobilenoInputComponent {
         store_location: '',
       })
       .subscribe((res) => {
-        console.log(res);
+        //console.log(res);
         this.countStart = true;
         this.isOtpSent = true;
       });
@@ -78,7 +78,7 @@ export class MobilenoInputComponent {
   getColor() {
     if (
       this.form.get(this.inputid).invalid &&
-      this.form.get(this.inputid).touched 
+      this.form.get(this.inputid).touched
     ) {
       return '#ec3131';
     } else {

@@ -1,7 +1,7 @@
 <main>
-  <app-heading> </app-heading>
   <form [formGroup]="from">
     <section class="main-container">
+
       <article>
         <app-form-input
           type="text"
@@ -49,6 +49,7 @@
         ></app-que-container>
       </div>
     </div>
-    <app-submit-button></app-submit-button>
+    <app-submit-button [form]="from"></app-submit-button>
+    <app-footer [form]="from"></app-footer>
   </form>
 </main>

@@ -1,12 +1,6 @@
 <div>
   <app-header></app-header>
-  
-  <app-main-form>
+  <app-heading> </app-heading>
 
-
-  </app-main-form>
-
-
-  <app-footer></app-footer>
-  <app-error ></app-error>
+  <app-main-form (formOut)="formOutHandler($event)"> </app-main-form>
 </div>

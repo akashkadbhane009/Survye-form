@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Questions } from '../Interfaces/Questions.interface';
 import { QuestionsService } from '../service/questions.service';
@@ -13,8 +13,9 @@ export class MainFormComponent implements OnInit {
   @Input() max: any = '';
   date: any;
   from!: any;
-  Q! : Questions;
-  arr! : any[]
+  @Output() formOut = new EventEmitter<any>();
+  Q!: Questions;
+  arr!: any[];
 
   constructor(private que: QuestionsService) {}
   ngOnInit(): void {
@@ -23,20 +24,20 @@ export class MainFormComponent implements OnInit {
     this.max = parseInt(this.date);
 
     this.from = new FormGroup({
-      Name: new FormControl('', [
+      Name: new FormControl(null, [
         Validators.minLength(2),
         Validators.required,
         Validators.pattern('[a-zA-Z][a-zA-Z]+'),
       ]),
-      Email: new FormControl('', [Validators.email]),
+      Email: new FormControl(null, [Validators.email]),
       dateOfVisit: new FormControl(this.value, [
         Validators.required,
         Validators.max(this.max),
       ]),
-      feedbackDate :new FormControl(this.value),
-      city: new FormControl('', [Validators.required]),
-      store: new FormControl('', [Validators.required]),
-      mobileNo: new FormControl('', [
+      feedbackDate: new FormControl(this.value),
+      city: new FormControl(null, [Validators.required]),
+      store: new FormControl(null, [Validators.required]),
+      mobileNo: new FormControl(null, [
         Validators.required,
         Validators.pattern('^[0-9]{10}$'),
       ]),
@@ -44,67 +45,67 @@ export class MainFormComponent implements OnInit {
         Validators.required,
         Validators.pattern('^[0-9]{4}$'),
       ]),
-      offCom : new FormControl('true'),
+      offCom: new FormControl('true'),
       survey_response: new FormArray([
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        }),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        }),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        }),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        }),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        }),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        }),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-        (new FormGroup({
-          qId: new FormControl(''),
-          data: new FormControl(''),
-          type: new FormControl(''),
+        }),
+        new FormGroup({
+          qId: new FormControl(null),
+          data: new FormControl(null),
+          type: new FormControl(null),
           res: new FormControl(''),
-        })),
-
+        }),
       ]),
     });
-    this.from.valueChanges.subscribe((res) => {
-     // console.log(res.survey_response);
-    });
 
-    this.que.getQuestons().subscribe(res=>{
+    this.formOut.emit(this.from);
+
+    this.que.getQuestons().subscribe((res) => {
       this.Q = res;
-      this.arr = this.Q.data.data.sort((a,b) => a.sequence > b.sequence ? 1 : -1);
-     // console.log(this.arr)
-    })
+      this.arr = this.Q.data.data.sort((a, b) =>
+        a.sequence > b.sequence ? 1 : -1
+      );
+      // console.log(this.arr)
+    });
   }
 }

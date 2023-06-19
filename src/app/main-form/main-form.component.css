@@ -3,6 +3,7 @@
   margin: 5px 0;
   padding: 25px 25px 15px;
   background-color: var(--white);
+  max-width: 768px;
 }
 .main-container article {
   position: relative;
@@ -23,3 +24,4 @@
   top: 10%;
   z-index: 2;
 }
+
